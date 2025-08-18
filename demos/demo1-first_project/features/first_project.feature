@@ -5,8 +5,8 @@ Feature: Mon Premier projet BDD
 
   Scenario: Test de mon premier scénario
 
-    Given J'ouvre mon terminal
-    When Je me déplace dans le répertoire C:\Users\jeann\PycharmProjects\PythonProject\cours-bdd
-    And J'affiche le contenu avec 'dir'
+    Given J'ouvre mon terminal "Powershell"
+    When Je me déplace dans le répertoire "C:\Users\jeann\PycharmProjects\PythonProject\cours-bdd"
+    And J'affiche le contenu avec "dir"
     And Je regarde le contenu du répertoire
     Then Je ferme le répertoire

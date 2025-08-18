@@ -12,31 +12,36 @@ logger.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 # Création du handler (gestionnaire de sortie)
-file_handler = logging.FileHandler('first_project.log', mode='a', encoding='utf-8')
+file_handler = logging.FileHandler('demo2_parametres.log', mode='a', encoding='utf-8')
 file_handler.setLevel(logging.DEBUG)  # Niveau de log minimum à enregistrer dans le fichier
 file_handler.setFormatter(formatter)
 
 # Association du handler au logger
 logger.addHandler(file_handler)
 
-@given("J'ouvre mon terminal")
-def open_terminal(context):
-    print("P: J'ouvre mon terminal.")
-    logger.info("J'ouvre mon terminal.")
+@given("J'ouvre mon terminal {shell}")
+def open_terminal(context, shell):
+    #Récupération de la valeur transmise dans le fichier Gherkin
+    #dans la variable 'shell'
+
+    #Remplacement des guillemets double par une chaîne vide ""
+    shell = shell.replace('"', "")
+    print(f"P: J'ouvre mon terminal {shell}")
+    logger.info(f"J'ouvre mon terminal {shell}")
     time.sleep(2)
 
 
-@when(u"Je me déplace dans le répertoire C:\\Users\jeann\PycharmProjects\PythonProject\cours-bdd")
-def deplacer_Dans_Repertoire(context):
-    print('P: Je me déplace dans le répertoire C:\\Users\jeann\PycharmProjects\PythonProject\cours-bdd')
-    logger.info("Je me déplace dans le répertoire C:\\Users\jeann\PycharmProjects\PythonProject\cours-bdd")
+@when(u"Je me déplace dans le répertoire {path}")
+def deplacer_Dans_Repertoire(context, path):
+    print(f"P: Je me déplace dans le répertoire {path}")
+    logger.info(f"Je me déplace dans le répertoire {path}")
     time.sleep(2)
 
 
-@when("J'affiche le contenu avec 'dir'")
-def affiche_contenu(context):
-    print("P: J'affiche le contenu avec 'dir'")
-    logger.info("J'affiche le contenu avec 'dir'")
+@when("J'affiche le contenu avec {cmd}")
+def affiche_contenu(context, cmd):
+    print(f"P: J'affiche le contenu avec {cmd}")
+    logger.info(f"J'affiche le contenu avec {cmd}")
     time.sleep(2)
 
 
