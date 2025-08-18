@@ -12,7 +12,7 @@ logger.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 # Création du handler (gestionnaire de sortie)
-file_handler = logging.FileHandler('demo3_dataTable.log', mode='a', encoding='utf-8')
+file_handler = logging.FileHandler('demo4_scenario-outline.log', mode='a', encoding='utf-8')
 file_handler.setLevel(logging.DEBUG)  # Niveau de log minimum à enregistrer dans le fichier
 file_handler.setFormatter(formatter)
 
